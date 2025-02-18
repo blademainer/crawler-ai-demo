@@ -2,7 +2,7 @@ from scrapegraphai.graphs import SmartScraperGraph
 
 graph_config = {
     "llm": {
-        "model": "deepseek-r1:70b",
+        "model": "ollama/mistral",
         "temperature": 0,
         "format": "json",  # Ollama 需要显式指定格式
         "base_url": "http://localhost:11434",  # 设置 Ollama URL
