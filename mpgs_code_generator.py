@@ -10,7 +10,7 @@ class Parameter(BaseModel):
     name: str = Field(description="The name of the field")
     description: str = Field(description="The description of the project")
     type: str = Field(description="The type of the field, e.g. 'string', 'int', 'float', 'enum'")
-    parameters: List["Parameter"] = Field(description="The children of the field")
+    # parameters: List["Parameter"] = Field(description="The children of the field")
 
 
 class Parameters(BaseModel):
@@ -18,14 +18,14 @@ class Parameters(BaseModel):
 
 graph_config = {
     "llm": {
-        "model": "ollama/llama3.3",
+        "model": "ollama/mistral",
         "temperature": 0,
         "format": "json",  # Ollama 需要显式指定格式
         "base_url": "http://localhost:11434",  # 设置 Ollama URL
-        "max_tokens": 100000,
+        # "max_tokens": 100000,
     },
     "verbose": True,
-    "headless": False,
+    "headless": True,
     "reduction": 2,
     "max_iterations": {
         "overall": 10,
@@ -46,4 +46,4 @@ code_generator_graph = CodeGeneratorGraph(
 )
 
 result = code_generator_graph.run()
-json.dump(result, open("mpgs_api_fields.json", "w"), indent=4)
+json.dumps(result, indent=4)

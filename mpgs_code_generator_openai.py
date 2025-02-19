@@ -9,16 +9,16 @@ from scrapegraphai.graphs import CodeGeneratorGraph
 class Parameter(BaseModel):
     name: str = Field(description="The name of the field")
     description: str = Field(description="The description of the project")
-    type: str = Field(description="The type of the field, e.g. 'string', 'int', 'float', 'enum'")
-    parameters: List["Parameter"] = Field(description="The children of the field", default=[])
+    type: str = Field(description="The type of the field, e.g. 'string', 'int', 'float', 'enum', 'object'")
+    # parameters: List["Parameter"] = Field(description="The children of the field", default=[])
 
-    @model_validator(mode='before')
-    def check_depth(cls, values):
-        # Limit the recursion depth to prevent infinite recursion
-        parameters = values.get("parameters", [])
-        if parameters and len(parameters) > 5:  # Example depth limit, adjust as needed
-            raise ValueError("Recursion depth exceeded")
-        return values
+    # @model_validator(mode='before')
+    # def check_depth(cls, values):
+    #     # Limit the recursion depth to prevent infinite recursion
+    #     parameters = values.get("parameters", [])
+    #     if parameters and len(parameters) > 5:  # Example depth limit, adjust as needed
+    #         raise ValueError("Recursion depth exceeded")
+    #     return values
 
 class Parameters(BaseModel):
     parameters: List[Parameter]
@@ -54,4 +54,4 @@ code_generator_graph = CodeGeneratorGraph(
 )
 
 result = code_generator_graph.run()
-json.dump(result, open("mpgs_api_fields.json", "w"), indent=4)
+json.dumps(result, indent=4)

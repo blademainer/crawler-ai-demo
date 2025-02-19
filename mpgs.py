@@ -1,10 +1,11 @@
 from langchain_core.prompts import *
 from scrapegraphai.graphs import SmartScraperGraph
 from scrapegraphai.prompts import *
+import json
 
 graph_config = {
     "llm": {
-        "model": "ollama/llama3.3",
+        "model": "ollama/llama3.2",
         "temperature": 0,
         "format": "json",  # Ollama 需要显式指定格式
         "base_url": "http://localhost:11434",  # 设置 Ollama URL
