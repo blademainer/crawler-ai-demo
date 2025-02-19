@@ -1,1 +1,1 @@
-scrapegraphai===0.0.1
+scrapegraphai==1.37.0

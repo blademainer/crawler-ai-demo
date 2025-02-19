@@ -1,4 +1,6 @@
+from langchain_core.prompts import *
 from scrapegraphai.graphs import SmartScraperGraph
+from scrapegraphai.prompts import *
 
 graph_config = {
     "llm": {
@@ -15,7 +17,7 @@ graph_config = {
 }
 
 smart_scraper_graph = SmartScraperGraph(
-    prompt="List all the protocols that are supported by the API",
+    prompt="List all the fields of request body and response body for the API",
     # 也接受已下载的 HTML 代码的字符串
     source="https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/rest-json/version/100/operation/Transaction:%20%20Authorize.html?locale=en_US",
     config=graph_config
