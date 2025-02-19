@@ -1,0 +1,264 @@
+{
+  'request_body': {
+    'merchantId': {
+      'type': 'Alphanumeric + additional characters',
+      'required': True,
+      'description': 'The unique identifier issued to you by your payment provider.'
+    },
+    'orderid': {
+      'type': 'String',
+      'required': True,
+      'description': 'A unique identifier for this order to distinguish it from any other order you create.'
+    },
+    'transactionid': {
+      'type': 'String',
+      'required': True,
+      'description': 'Unique identifier for this transaction to distinguish it from any other transaction on the order.'
+    },
+    'accountFunding': {
+      'optional': True,
+      'description': 'Additional details for account funding transactions.',
+      'children': {
+        'purpose': {
+          'type': 'Enumeration',
+          'optional': True,
+          'description': 'Defines the purpose of the account funding payment.'
+        },
+        'recipient': {
+          'optional': True,
+          'description': 'Details about the recipient who will subsequently receive the funds.',
+          'children': {
+            'account': {
+              'optional': True,
+              'description': 'Details about the account of recipient.',
+              'children': {
+                'fundingMethod': {
+                  'type': 'Enumeration',
+                  'optional': True,
+                  'description': 'If the recipient account type is an account with an associated card.'
+                },
+                'identifier': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': "The account identifier for the payment recipient's account."
+                },
+                'identifierType': {
+                  'type': 'Enumeration',
+                  'optional': True,
+                  'description': "Defines the type of the recipient's account identifier."
+                }
+              }
+            },
+            'address': {
+              'optional': True,
+              'description': "Details of the recipient's address.",
+              'children': {
+                'city': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The city portion of the address.'
+                },
+                'country': {
+                  'type': 'Upper case alphabetic text',
+                  'optional': True,
+                  'description': 'The 3 letter ISO standard alpha country code of the address.'
+                },
+                'postCodeZip': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The post code or zip code of the address.'
+                },
+                'stateProvinceCode': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The state or province code of the address.'
+                },
+                'street': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The first line of the address.'
+                },
+                'street2': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The second line of the address.'
+                }
+              }
+            },
+            'firstName': {
+              'type': 'String',
+              'optional': True,
+              'description': 'First name of the recipient.'
+            },
+            'identification': {
+              'optional': True,
+              'description': 'Identification of the recipient.',
+              'children': {
+                'country': {
+                  'type': 'Upper case alphabetic text',
+                  'optional': True,
+                  'description': 'The ISO 3166 three-letter country code of the issuer of the identification.'
+                },
+                'type': {
+                  'type': 'Enumeration',
+                  'optional': True,
+                  'description': 'The type of identification provided for the recipient.'
+                },
+                'value': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The identification value/number for the type of identification provided.'
+                }
+              }
+            },
+            'lastName': {
+              'type': 'String',
+              'optional': True,
+              'description': 'Last name of the recipient.'
+            },
+            'middleName': {
+              'type': 'String',
+              'optional': True,
+              'description': 'Middle name of the recipient.'
+            },
+            'senderIsRecipient': {
+              'type': 'Boolean',
+              'optional': True,
+              'description': 'Defines if the sender and recipient of the account funding payment are the same or not.'
+            },
+            'senderType': {
+              'type': 'Enumeration',
+              'optional': True,
+              'description': 'Defines if the sender is a person, a commercial organization, a non-profit organization or a government.'
+            }
+          }
+        }
+      }
+    }
+  },
+  'response_body': {
+    'accountFunding': {
+      'children': {
+        'purpose': {
+          'type': 'Enumeration',
+          'optional': True,
+          'description': 'Defines the purpose of the account funding payment.'
+        },
+        'recipient': {
+          'optional': True,
+          'description': 'Details about the recipient who will subsequently receive the funds.',
+          'children': {
+            'account': {
+              'optional': True,
+              'description': 'Details about the account of recipient.',
+              'children': {
+                'fundingMethod': {
+                  'type': 'Enumeration',
+                  'optional': True,
+                  'description': 'If the recipient account type is an account with an associated card.'
+                },
+                'identifier': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': "The account identifier for the payment recipient's account."
+                },
+                'identifierType': {
+                  'type': 'Enumeration',
+                  'optional': True,
+                  'description': "Defines the type of the recipient's account identifier."
+                }
+              }
+            },
+            'address': {
+              'optional': True,
+              'description': "Details of the recipient's address.",
+              'children': {
+                'city': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The city portion of the address.'
+                },
+                'country': {
+                  'type': 'Upper case alphabetic text',
+                  'optional': True,
+                  'description': 'The 3 letter ISO standard alpha country code of the address.'
+                },
+                'postCodeZip': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The post code or zip code of the address.'
+                },
+                'stateProvinceCode': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The state or province code of the address.'
+                },
+                'street': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The first line of the address.'
+                },
+                'street2': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The second line of the address.'
+                }
+              }
+            },
+            'firstName': {
+              'type': 'String',
+              'optional': True,
+              'description': 'First name of the recipient.'
+            },
+            'identification': {
+              'optional': True,
+              'description': 'Identification of the recipient.',
+              'children': {
+                'country': {
+                  'type': 'Upper case alphabetic text',
+                  'optional': True,
+                  'description': 'The ISO 3166 three-letter country code of the issuer of the identification.'
+                },
+                'type': {
+                  'type': 'Enumeration',
+                  'optional': True,
+                  'description': 'The type of identification provided for the recipient.'
+                },
+                'value': {
+                  'type': 'String',
+                  'optional': True,
+                  'description': 'The identification value/number for the type of identification provided.'
+                }
+              }
+            },
+            'lastName': {
+              'type': 'String',
+              'optional': True,
+              'description': 'Last name of the recipient.'
+            },
+            'middleName': {
+              'type': 'String',
+              'optional': True,
+              'description': 'Middle name of the recipient.'
+            },
+            'reference': {
+              'type': 'String',
+              'required': True,
+              'description': 'A reference for this account funding transaction.'
+            },
+            'senderIsRecipient': {
+              'type': 'Boolean',
+              'optional': True,
+              'description': 'Defines if the sender and recipient of the account funding payment are the same or not.'
+            },
+            'senderType': {
+              'type': 'Enumeration',
+              'optional': True,
+              'description': 'Defines if the sender is a person, a commercial organization, a non-profit organization or a government.'
+            }
+          }
+        }
+      }
+    }
+  }
+}
