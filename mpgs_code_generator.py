@@ -18,7 +18,8 @@ class Parameters(BaseModel):
 
 graph_config = {
     "llm": {
-        "model": "ollama/mistral",
+        # "model": "ollama/mistral",
+        "model": "ollama/llama3.2",
         "temperature": 0,
         "format": "json",  # Ollama 需要显式指定格式
         "base_url": "http://localhost:11434",  # 设置 Ollama URL
