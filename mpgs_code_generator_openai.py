@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, Field, model_validator
 from pydantic import root_validator
 from scrapegraphai.graphs import CodeGeneratorGraph
+from dotenv import load_dotenv
 
 class Parameter(BaseModel):
     name: str = Field(description="The name of the field")
@@ -23,19 +24,24 @@ class Parameter(BaseModel):
 class Parameters(BaseModel):
     parameters: List[Parameter]
 
+load_dotenv()
+
 # 从环境变量中获取 OpenAI API Key
 openai_api_key = os.getenv("OPENAI_API_KEY")
+
+print(f"openai_api_key: {openai_api_key}")
 
 graph_config = {
     "llm": {
         "api_key": openai_api_key,
         "model": "openai/gpt-4o-mini",
         "temperature": 0,
-        "max_tokens": 2000,
+        "max_tokens": 4000,
     },
     "verbose": True,
     "headless": True,
     "reduction": 2,
+    "library": "beautifulsoup",
     "max_iterations": {
         "overall": 10,
         "syntax": 3,
