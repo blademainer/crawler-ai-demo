@@ -23,7 +23,7 @@ graph_config = {
         "temperature": 0.7,
         "format": "json",  # Ollama 需要显式指定格式
         "base_url": "http://localhost:11434",  # 设置 Ollama URL
-        "max_tokens": 100000,
+        # "max_tokens": 100000,
     },
     "verbose": True,
     "headless": True,
