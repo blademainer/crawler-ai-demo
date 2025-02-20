@@ -31,6 +31,7 @@ graph_config = {
         "api_key": openai_api_key,
         "model": "openai/gpt-4o-mini",
         "temperature": 0,
+        "max_tokens": 2000,
     },
     "verbose": True,
     "headless": True,
