@@ -23,10 +23,10 @@ class Projects(BaseModel):
 
 graph_config = {
     "llm": {
-        "model": "ollama/deepseek-r1:32b",
-        # "model": "ollama/llama3.2",
+        # "model": "ollama/deepseek-r1:32b",
+        "model": "ollama/llama3.2",
         # "model": "ollama/mistral",
-        "temperature": 0,
+        # "temperature": 0.7,
         "format": "json",  # Ollama 需要显式指定格式
         "base_url": "http://localhost:11434",  # 设置 Ollama URL
         "max_tokens": 50000,
